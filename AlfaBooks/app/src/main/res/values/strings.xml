@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AlfaBooks</string>
+    <string name="textSenha">Senha</string>
+    <string name="textEmail">E-mail</string>
+    <string name="textButtonLogin">Acessar</string>
+    <string name="textEsqueceuASenha">Esqueceu sua senha?</string>
+</resources>
