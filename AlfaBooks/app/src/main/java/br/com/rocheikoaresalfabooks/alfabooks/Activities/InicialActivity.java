@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +21,10 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
  */
 
 public class InicialActivity extends AppCompatActivity{
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,11 +34,7 @@ public class InicialActivity extends AppCompatActivity{
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
 
-        // Enable the Up button
-//        ab.setDisplayHomeAsUpEnabled(true);
-
         Button loginBtn = (Button) findViewById(R.id.login_btn);
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +42,14 @@ public class InicialActivity extends AppCompatActivity{
             }
         });
 
+
     }
+
+
+
+
+
+    /** Action bar Menu **/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
