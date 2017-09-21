@@ -5,4 +5,7 @@
     <string name="textButtonLogin">Acessar</string>
     <string name="textEsqueceuASenha">Esqueceu sua senha?</string>
     <string name="action_search">Pesquisar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
