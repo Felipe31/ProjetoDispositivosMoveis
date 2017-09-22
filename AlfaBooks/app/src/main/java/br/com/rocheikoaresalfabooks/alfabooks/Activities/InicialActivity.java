@@ -58,6 +58,9 @@ public class InicialActivity extends AppCompatActivity{
             case R.id.action_search:
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
+            case R.id.action_shopping_cart:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
         }
 
 
