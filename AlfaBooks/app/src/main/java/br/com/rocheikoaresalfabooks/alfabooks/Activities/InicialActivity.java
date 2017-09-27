@@ -1,5 +1,6 @@
 package br.com.rocheikoaresalfabooks.alfabooks.Activities;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -59,7 +60,7 @@ public class InicialActivity extends AppCompatActivity{
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.action_shopping_cart:
-                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, CarrinhoActivity.class));
                 break;
         }
 
