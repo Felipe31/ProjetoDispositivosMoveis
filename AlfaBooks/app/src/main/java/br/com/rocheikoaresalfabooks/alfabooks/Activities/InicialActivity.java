@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 /**
@@ -42,6 +44,23 @@ public class InicialActivity extends AppCompatActivity{
                 startActivity(new Intent(view.getContext(), LoginActivity.class));
             }
         });
+
+
+        /** Recycler View code **/
+        mRecyclerView = (RecyclerView) findViewById(R.id.livros_rclrv);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.ori
+
+        // specify an adapter
+        mAdapter = new LivrosAdapter(new String[][]{{"Nome 1", "Descrição 1"}, {"Nome 2", "Descrição 2"}, {"Nome 3", "Descrição 3"}});
+        mRecyclerView.setAdapter(mAdapter);
 
 
     }
