@@ -7,11 +7,16 @@
     android:padding="10dp"
     tools:context="br.com.rocheikoaresalfabooks.alfabooks.Activities.CarrinhoActivity">
 
-    <fragment
-        android:name="br.com.rocheikoaresalfabooks.alfabooks.Fragments.CarrinhoFragment"
-        android:id="@+id/fragment_carrinho"
+    <!--<fragment-->
+        <!--android:name="br.com.rocheikoaresalfabooks.alfabooks.Fragments.CarrinhoFragment"-->
+        <!--android:id="@+id/fragment_carrinho"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="400dp"> </fragment>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/carrinho_rcyclview"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="400dp"> </fragment>
+        android:layout_height="400dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

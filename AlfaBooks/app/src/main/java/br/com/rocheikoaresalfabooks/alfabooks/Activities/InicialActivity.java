@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosFragmentStatePagerAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 /**
@@ -46,22 +50,22 @@ public class InicialActivity extends AppCompatActivity{
         });
 
 
-        /** Recycler View code **/
-        mRecyclerView = (RecyclerView) findViewById(R.id.livros_rclrv);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
+        /** ViewPager **/
+        ViewPager vp = (ViewPager) findViewById(R.id.livros_vpager);
 
 
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.ori
 
-        // specify an adapter
-        mAdapter = new LivrosAdapter(new String[][]{{"Nome 1", "Descrição 1"}, {"Nome 2", "Descrição 2"}, {"Nome 3", "Descrição 3"}});
-        mRecyclerView.setAdapter(mAdapter);
+        Object[] dataSet = new Object[]{
+                new LivroSerializable("Titulo 1", "Descrição 1", 1, null),
+                new LivroSerializable("Titulo 2", "Descrição 2", 2, null),
+                new LivroSerializable("Titulo 3", "Descrição 3", 3, null),
+                new LivroSerializable("Titulo 4", "Descrição 4", 4, null),
+                new LivroSerializable("Titulo 5", "Descrição 5", 5, null)};
 
+
+
+        LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), dataSet);
+        vp.setAdapter(pagerAdapter);
 
     }
 

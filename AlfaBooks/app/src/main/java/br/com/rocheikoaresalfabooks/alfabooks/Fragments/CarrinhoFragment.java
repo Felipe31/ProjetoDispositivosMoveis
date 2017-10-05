@@ -42,30 +42,10 @@ public class CarrinhoFragment extends Fragment{
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.fragment_carrinho, container, false);//fragment_one layout is the layout for first tab in filter
 
-        listArea=(ListView)view.findViewById(R.id.fragment_carrinho_lv);
-
-        itensArrayList = carregarLista();
-
-        CarrinhoAdapter myOrderAdapter = new CarrinhoAdapter(getActivity(), itensArrayList);
-        listArea.setAdapter(myOrderAdapter);
         return view;
     }
 
-    private ArrayList<ItensCarrinhoSerializable> carregarLista() {
-        ArrayList<ItensCarrinhoSerializable> itens = new ArrayList<>();
 
-
-        itens.add(new ItensCarrinhoSerializable("TV", 12));
-        itens.add(new ItensCarrinhoSerializable("TV1", 132));
-        itens.add(new ItensCarrinhoSerializable("TV2", 122));
-        itens.add(new ItensCarrinhoSerializable("TV3", 112));
-        itens.add(new ItensCarrinhoSerializable("TV", 12));
-        itens.add(new ItensCarrinhoSerializable("TV1", 132));
-        itens.add(new ItensCarrinhoSerializable("TV2", 122));
-        itens.add(new ItensCarrinhoSerializable("TV3", 112));
-
-        return itens;
-    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

@@ -29,11 +29,18 @@
             <!--android:name="br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroFragment"/>-->
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/livros_rclrv"
-            android:scrollbars="vertical"
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/livros_rclrv"-->
+            <!--android:scrollbars="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/livros_vpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 
