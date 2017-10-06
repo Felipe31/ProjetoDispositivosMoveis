@@ -16,27 +16,28 @@
         android:id="@+id/carrinho_rcyclview"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="400dp"/>
+        android:layout_height="400dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:paddingTop="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp">
 
-        <Button
-            android:id="@+id/continuar_comprando_car_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/continuar_comprando_car_btn" />
+            <Button
+                android:id="@+id/continuar_comprando_car_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/continuar_comprando_car_btn" />
 
-        <Button
-            android:id="@+id/finalizar_compra_cart_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/finalizar_compra_cart_btn" />
+            <Button
+                android:id="@+id/finalizar_compra_cart_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/finalizar_compra_cart_btn" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

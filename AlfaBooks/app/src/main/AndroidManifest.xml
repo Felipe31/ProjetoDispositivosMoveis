@@ -21,6 +21,11 @@
         </activity>
         <activity android:name=".Activities.CarrinhoActivity"
             android:parentActivityName=".Activities.InicialActivity"></activity>
+        <activity android:name=".Activities.PesquisarActivity"
+            android:parentActivityName=".Activities.InicialActivity"></activity>
+        <activity android:name=".Activities.SobreActivity"
+            android:parentActivityName=".Activities.InicialActivity"></activity>
     </application>
+
 
 </manifest>

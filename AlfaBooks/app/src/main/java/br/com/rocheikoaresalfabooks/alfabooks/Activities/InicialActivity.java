@@ -80,7 +80,7 @@ public class InicialActivity extends AppCompatActivity{
 
         switch (item.getItemId()) {
             case R.id.action_search:
-                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, PesquisarActivity.class));
                 break;
             case R.id.action_shopping_cart:
                 startActivity(new Intent(this, CarrinhoActivity.class));
