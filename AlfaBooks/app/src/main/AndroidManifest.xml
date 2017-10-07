@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.CarrinhoActivity"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Activities.InicialActivity"></activity>
         <activity android:name=".Activities.PesquisarActivity"
             android:parentActivityName=".Activities.InicialActivity"></activity>

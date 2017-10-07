@@ -15,6 +15,6 @@
     <string name="finalizar_compra_cart_btn">Finalizar Compra</string>
     <string name="qtd_cart_txtv">Qtd:</string>
     <string name="remove_item_carrinho">Item removido com sucesso</string>
-    <string name="desfazer_remover_item_carrinho">Desfazer</string>
+    <string name="desfazer">Desfazer</string>
     <string name="sobre">Sobre Nós</string>
 </resources>

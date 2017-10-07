@@ -9,12 +9,19 @@ import java.io.Serializable;
 public class ItensCarrinhoSerializable implements Serializable {
 
     private String nome;
-    private int qtd;
+    private int qtd, id;
+    private float valor;
 
-    public ItensCarrinhoSerializable(String nome, int qtd){
+    public ItensCarrinhoSerializable(int id, String nome, int qtd, float valor){
+        this.id=id;
         this.nome=nome;
         this.qtd=qtd;
+        this.valor=valor;
 
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -23,5 +30,9 @@ public class ItensCarrinhoSerializable implements Serializable {
 
     public int getQtd() {
         return qtd;
+    }
+
+    public float getValor() {
+        return valor;
     }
 }

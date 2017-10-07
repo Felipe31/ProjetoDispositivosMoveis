@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.CarrinhoAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.ItensCarrinhoSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
@@ -34,6 +36,8 @@ public class CarrinhoActivity extends AppCompatActivity {
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
+        Log.e("TAAG", "Passou");
+
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -41,21 +45,11 @@ public class CarrinhoActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         mAdapter = new CarrinhoAdapter(carregarLista());
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(mRecyclerView.getLayoutManager());
     }
 
     private ArrayList<ItensCarrinhoSerializable> carregarLista() {
-        ArrayList<ItensCarrinhoSerializable> itens = new ArrayList<>();
 
-
-        itens.add(new ItensCarrinhoSerializable("TV1", 1));
-        itens.add(new ItensCarrinhoSerializable("TV2", 2));
-        itens.add(new ItensCarrinhoSerializable("TV3", 3));
-        itens.add(new ItensCarrinhoSerializable("TV4", 4));
-        itens.add(new ItensCarrinhoSerializable("TV5", 5));
-        itens.add(new ItensCarrinhoSerializable("TV6", 6));
-        itens.add(new ItensCarrinhoSerializable("TV7", 7));
-        itens.add(new ItensCarrinhoSerializable("TV8", 8));
-
-        return itens;
+        return BancoTemporario.getInstance().getItensCarrinho();
     }
 }

@@ -19,7 +19,6 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
-    String[] titles = new String[]{"Harry Potter e o Ducheiko filosofal", "Ducheiko, a biografia"};
     Object[] dataSet;
 
     public LivrosFragmentStatePagerAdapter(FragmentManager fm, Object[] dataSet) {
@@ -32,7 +31,7 @@ public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
         LivroFragment fragment = new LivroFragment();
         Bundle args = new Bundle();
-        args.putSerializable("item", (LivroSerializable) dataSet[position]);
+        args.putSerializable("livro", (LivroSerializable) dataSet[position]);
         fragment.setArguments(args);
         return fragment;
     }

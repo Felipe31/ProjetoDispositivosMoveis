@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosFragmentStatePagerAdapter;
@@ -49,6 +50,13 @@ public class InicialActivity extends AppCompatActivity{
             }
         });
 
+        TextView sobreNosTxtv = (TextView) findViewById(R.id.sobre_nos);
+        sobreNosTxtv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), SobreActivity.class));
+            }
+        });
 
         /** ViewPager **/
         ViewPager vp = (ViewPager) findViewById(R.id.livros_vpager);
@@ -56,11 +64,11 @@ public class InicialActivity extends AppCompatActivity{
 
 
         Object[] dataSet = new Object[]{
-                new LivroSerializable("Titulo 1", "Descrição 1", 1, null),
-                new LivroSerializable("Titulo 2", "Descrição 2", 2, null),
-                new LivroSerializable("Titulo 3", "Descrição 3", 3, null),
-                new LivroSerializable("Titulo 4", "Descrição 4", 4, null),
-                new LivroSerializable("Titulo 5", "Descrição 5", 5, null)};
+                new LivroSerializable(1, "Titulo 1", "Descrição 1", 1, null),
+                new LivroSerializable(2, "Titulo 2", "Descrição 2", 2, null),
+                new LivroSerializable(3, "Titulo 3", "Descrição 3", 3, null),
+                new LivroSerializable(4, "Titulo 4", "Descrição 4", 4, null),
+                new LivroSerializable(5, "Titulo 5", "Descrição 5", 5, null)};
 
 
 

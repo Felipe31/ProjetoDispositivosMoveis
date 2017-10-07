@@ -2,21 +2,16 @@ package br.com.rocheikoaresalfabooks.alfabooks.Adapters;
 
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.ItensCarrinhoSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
-
-import static android.R.id.list;
 
 /**
  * Created by felipesoares on 26/09/17.
@@ -49,7 +44,7 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.ViewHo
 
                 Snackbar mySnackbar = Snackbar.make(view,
                         R.string.remove_item_carrinho, Snackbar.LENGTH_LONG);
-                mySnackbar.setAction(R.string.desfazer_remover_item_carrinho, new DesfazerRemover(dataSet, dataSet.get(position), position));
+                mySnackbar.setAction(R.string.desfazer, new DesfazerRemover(dataSet, dataSet.get(position), position));
 //                mySnackbar.setAction(R.string.desfazer_remover_item_carrinho, null);
                 mySnackbar.show();
 
