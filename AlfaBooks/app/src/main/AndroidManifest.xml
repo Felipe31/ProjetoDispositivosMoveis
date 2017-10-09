@@ -26,6 +26,9 @@
             android:parentActivityName=".Activities.InicialActivity"></activity>
         <activity android:name=".Activities.SobreActivity"
             android:parentActivityName=".Activities.InicialActivity"></activity>
+        <activity android:name=".Activities.ExibirLivroActivity"
+            android:parentActivityName=".Activities.PesquisarActivity"></activity>
+
     </application>
 
 

@@ -12,5 +12,5 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="50dp"
-        android:text="TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView " />
+        android:text="Fundada em 2017, a AlfaBooks Ltda tem como objetivo formar um catálogo eclético, de valor literário e comercial, que compreenda o melhor da literatura brasileira e estrangeira de ficção, negócios, humanidades, esportes, música e viagens. Também é nossa missão acolher os autores consagrados bem como jovens promessas." />
 </LinearLayout>
