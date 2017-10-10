@@ -28,6 +28,8 @@
             android:parentActivityName=".Activities.InicialActivity"></activity>
         <activity android:name=".Activities.ExibirLivroActivity"
             android:parentActivityName=".Activities.PesquisarActivity"></activity>
+        <activity android:name=".Activities.PainelActivity"
+            android:parentActivityName=".Activities.LoginActivity"></activity>
 
     </application>
 
