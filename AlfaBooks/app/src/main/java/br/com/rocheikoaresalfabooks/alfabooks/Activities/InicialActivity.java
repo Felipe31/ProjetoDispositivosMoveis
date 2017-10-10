@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosFragmentStatePagerAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
@@ -62,18 +63,17 @@ public class InicialActivity extends AppCompatActivity{
         ViewPager vp = (ViewPager) findViewById(R.id.livros_vpager);
 
 
+        BancoTemporario banco = BancoTemporario.getInstance();
 
-        Object[] dataSet = new Object[]{
-                new LivroSerializable(1, "Titulo 1", "Descrição 1", 1, null),
-                new LivroSerializable(2, "Titulo 2", "Descrição 2", 2, null),
-                new LivroSerializable(3, "Titulo 3", "Descrição 3", 3, null),
-                new LivroSerializable(4, "Titulo 4", "Descrição 4", 4, null),
-                new LivroSerializable(5, "Titulo 5", "Descrição 5", 5, null)};
+        banco.addItemDataSet(new LivroSerializable(1, "Titulo 1", "Descrição 1", 1, null));
+        banco.addItemDataSet(new LivroSerializable(2, "Titulo 2", "Descrição 2", 2, null));
+        banco.addItemDataSet(new LivroSerializable(3, "Titulo 3", "Descrição 3", 3, null));
+        banco.addItemDataSet(new LivroSerializable(4, "Titulo 4", "Descrição 4", 4, null));
+        banco.addItemDataSet(new LivroSerializable(5, "Titulo 5", "Descrição 5", 5, null));
 
-
-
-        LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), dataSet);
+        LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), banco.getItensDataSet(), true);
         vp.setAdapter(pagerAdapter);
+
 
     }
 
