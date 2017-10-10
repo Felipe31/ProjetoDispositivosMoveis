@@ -9,6 +9,14 @@
     android:orientation="vertical"
     tools:context="br.com.rocheikoaresalfabooks.alfabooks.Activities.LoginActivity">
 
+    <ImageView
+        android:id="@+id/seta"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_alfabooks_logo" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
