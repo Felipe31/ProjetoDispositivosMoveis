@@ -4,6 +4,7 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -43,6 +44,14 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:text="@string/sobre" />
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:text="https://www.dropbox.com/s/2fjwo200at1hodg/pdf-apps.pdf?dl=0" />
 
     </LinearLayout>
 </ScrollView>

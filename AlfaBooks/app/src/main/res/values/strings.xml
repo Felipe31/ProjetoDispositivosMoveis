@@ -17,4 +17,10 @@
     <string name="remove_item_carrinho">Item removido com sucesso</string>
     <string name="desfazer">Desfazer</string>
     <string name="sobre">Sobre Nós</string>
+    <string name="Cliente">Cliente</string>
+    <string name="Produto">Produto</string>
+    <string name="Fornecedor">Fornecedor</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="deletar">Deletar</string>
 </resources>

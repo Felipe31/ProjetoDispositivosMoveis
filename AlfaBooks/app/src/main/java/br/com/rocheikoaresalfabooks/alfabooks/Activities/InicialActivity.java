@@ -2,6 +2,11 @@ package br.com.rocheikoaresalfabooks.alfabooks.Activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -17,10 +22,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosFragmentStatePagerAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
@@ -62,18 +77,23 @@ public class InicialActivity extends AppCompatActivity{
         ViewPager vp = (ViewPager) findViewById(R.id.livros_vpager);
 
 
-
-        Object[] dataSet = new Object[]{
-                new LivroSerializable(1, "Titulo 1", "Descrição 1", 1, null),
-                new LivroSerializable(2, "Titulo 2", "Descrição 2", 2, null),
-                new LivroSerializable(3, "Titulo 3", "Descrição 3", 3, null),
-                new LivroSerializable(4, "Titulo 4", "Descrição 4", 4, null),
-                new LivroSerializable(5, "Titulo 5", "Descrição 5", 5, null)};
+        BancoTemporario banco = BancoTemporario.getInstance();
 
 
+        Bitmap bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_delete)).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
 
-        LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), dataSet);
+        banco.addItemDataSet(new LivroSerializable(1, "Titulo 1", "Descrição Breve 1", "Descrição Longa 1", 1, byteArray));
+        banco.addItemDataSet(new LivroSerializable(2, "Titulo 2", "Descrição Breve 2", "Descrição Longa 2", 2, byteArray));
+        banco.addItemDataSet(new LivroSerializable(3, "Titulo 3", "Descrição Breve 3", "Descrição Longa 3", 3, byteArray));
+        banco.addItemDataSet(new LivroSerializable(4, "Titulo 4", "Descrição Breve 4", "Descrição Longa 4", 4, byteArray));
+        banco.addItemDataSet(new LivroSerializable(5, "Titulo 5", "Descrição Breve 5", "Descrição Longa 5", 5, byteArray));
+
+        LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), banco.getItensDataSet(), true);
         vp.setAdapter(pagerAdapter);
+
 
     }
 

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroFragment;
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
@@ -19,11 +21,13 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
-    Object[] dataSet;
+    private ArrayList<LivroSerializable> dataSet;
+    private boolean setOnClickListener;
 
-    public LivrosFragmentStatePagerAdapter(FragmentManager fm, Object[] dataSet) {
+    public LivrosFragmentStatePagerAdapter(FragmentManager fm, ArrayList<LivroSerializable> dataSet, boolean setOnClickListener) {
         super(fm);
         this.dataSet = dataSet;
+        this.setOnClickListener = setOnClickListener;
     }
 
     @Override
@@ -31,13 +35,15 @@ public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
         LivroFragment fragment = new LivroFragment();
         Bundle args = new Bundle();
-        args.putSerializable("livro", (LivroSerializable) dataSet[position]);
+        args.putSerializable("livro", dataSet.get(position));
+        args.putSerializable("onclick", setOnClickListener);
+        args.putSerializable("breve", true);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return dataSet.length;
+        return dataSet.size();
     }
 }

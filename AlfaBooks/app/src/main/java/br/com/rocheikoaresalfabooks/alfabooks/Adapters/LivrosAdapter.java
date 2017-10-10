@@ -1,5 +1,7 @@
 package br.com.rocheikoaresalfabooks.alfabooks.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import br.com.rocheikoaresalfabooks.alfabooks.Activities.ExibirLivroActivity;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 /**
@@ -41,6 +44,9 @@ public class LivrosAdapter extends RecyclerView.Adapter<LivrosAdapter.ViewHolder
     }
 
 
+
+
+
     /** View Holder **/
 
 
@@ -61,7 +67,6 @@ public class LivrosAdapter extends RecyclerView.Adapter<LivrosAdapter.ViewHolder
             descricaoTxtv = mView.findViewById(R.id.descricao_txtv );
 
 
-
         }
     }
 
@@ -75,7 +80,6 @@ public class LivrosAdapter extends RecyclerView.Adapter<LivrosAdapter.ViewHolder
         v.setMinimumWidth(parent.getMeasuredWidth());
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
-
 
 
         return vh;

@@ -1,7 +1,11 @@
 package br.com.rocheikoaresalfabooks.alfabooks.Fragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
 /**
@@ -12,16 +16,18 @@ public class LivroSerializable implements Serializable {
 
     private int id;
     private String titulo;
-    private String descricao;
+    private String descricaoBreve;
+    private String descricaoLonga;
     private float valor;
-    private Image image;
+    private byte[] bmp;
 
-    public LivroSerializable(int id, String titulo, String descricao, float valor, Image image){
+    public LivroSerializable(int id, String titulo, String descricaoBreve, String descricaoLonga, float valor, byte[] compressedBmpArray){
         this.id = id;
         this.titulo = titulo;
-        this.descricao = descricao;
+        this.descricaoBreve = descricaoBreve;
+        this.descricaoLonga = descricaoLonga;
         this.valor = valor;
-        this.image = image;
+        this.bmp = compressedBmpArray;
     }
 
     public int getId() {
@@ -32,15 +38,19 @@ public class LivroSerializable implements Serializable {
         return titulo;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoBreve() {
+        return descricaoBreve;
+    }
+
+    public String getDescricaoLonga() {
+        return descricaoLonga;
     }
 
     public float getValor() {
         return valor;
     }
 
-    public Image getImage() {
-        return image;
+    public Bitmap getBitmap() {
+        return BitmapFactory.decodeStream(new ByteArrayInputStream(bmp));
     }
 }
