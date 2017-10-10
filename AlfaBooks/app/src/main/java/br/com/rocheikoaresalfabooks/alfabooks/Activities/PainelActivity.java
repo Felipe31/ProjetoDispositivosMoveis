@@ -1,5 +1,6 @@
 package br.com.rocheikoaresalfabooks.alfabooks.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -37,7 +38,8 @@ public class PainelActivity extends AppCompatActivity{
         cadCliBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent it = new Intent(view.getContext(), CadastrarClienteActivity.class);
+                startActivity(it);
             }
         });
         atuCliBtn.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +57,8 @@ public class PainelActivity extends AppCompatActivity{
         cadProdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent it = new Intent(view.getContext(), CadastrarProdutoActivity.class);
+                startActivity(it);
             }
         });
         atuProdBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +76,8 @@ public class PainelActivity extends AppCompatActivity{
         cadFornBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent it = new Intent(view.getContext(), CadastrarFornecedorActivity.class);
+                startActivity(it);
             }
         });
         atuFornBtn.setOnClickListener(new View.OnClickListener() {

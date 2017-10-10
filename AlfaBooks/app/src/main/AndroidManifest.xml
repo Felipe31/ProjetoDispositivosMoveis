@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_alfabooks_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -22,14 +22,27 @@
         <activity android:name=".Activities.CarrinhoActivity"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Activities.InicialActivity"></activity>
+
         <activity android:name=".Activities.PesquisarActivity"
             android:parentActivityName=".Activities.InicialActivity"></activity>
+
         <activity android:name=".Activities.SobreActivity"
             android:parentActivityName=".Activities.InicialActivity"></activity>
+
         <activity android:name=".Activities.ExibirLivroActivity"
             android:parentActivityName=".Activities.PesquisarActivity"></activity>
+
         <activity android:name=".Activities.PainelActivity"
             android:parentActivityName=".Activities.LoginActivity"></activity>
+
+        <activity android:name=".Activities.CadastrarClienteActivity"
+            android:parentActivityName=".Activities.PainelActivity"></activity>
+
+        <activity android:name=".Activities.CadastrarFornecedorActivity"
+            android:parentActivityName=".Activities.PainelActivity"></activity>
+
+        <activity android:name=".Activities.CadastrarProdutoActivity"
+            android:parentActivityName=".Activities.PainelActivity"></activity>
 
     </application>
 

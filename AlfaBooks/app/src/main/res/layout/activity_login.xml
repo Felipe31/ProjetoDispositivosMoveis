@@ -80,6 +80,7 @@
         android:layout_height="44dp"
         android:layout_marginRight="0dp"
         android:text="Acessar"
+        style="@style/MaterialButton.ButtonNoBackground"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="304dp" />

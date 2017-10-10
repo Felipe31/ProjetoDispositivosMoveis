@@ -80,7 +80,7 @@ public class InicialActivity extends AppCompatActivity{
         BancoTemporario banco = BancoTemporario.getInstance();
 
 
-        Bitmap bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_delete)).getBitmap();
+        Bitmap bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_alfabooks_logo)).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
