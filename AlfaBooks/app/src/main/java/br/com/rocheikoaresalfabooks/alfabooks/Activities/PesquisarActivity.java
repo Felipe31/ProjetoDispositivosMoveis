@@ -12,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.ListViewAdapter;
+import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
+import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 /**
@@ -73,7 +75,9 @@ public class PesquisarActivity extends AppCompatActivity implements SearchView.O
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        startActivity(new Intent(view.getContext(), ExibirLivroActivity.class));
+        Intent it = new Intent(parent.getContext(), ExibirLivroActivity.class);
+        it.putExtra("livro", BancoTemporario.getInstance().getLivroSerializable(nomeLivroLista[position]));
+        startActivity(it);
 
         //Toast.makeText(getApplicationContext(),"Position of Selected Item is : "+position,Toast.LENGTH_LONG).show();
     }
