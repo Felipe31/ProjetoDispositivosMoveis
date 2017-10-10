@@ -22,7 +22,7 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
 public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<LivroSerializable> dataSet;
-    boolean setOnClickListener;
+    private boolean setOnClickListener;
 
     public LivrosFragmentStatePagerAdapter(FragmentManager fm, ArrayList<LivroSerializable> dataSet, boolean setOnClickListener) {
         super(fm);
@@ -37,6 +37,7 @@ public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
         Bundle args = new Bundle();
         args.putSerializable("livro", dataSet.get(position));
         args.putSerializable("onclick", setOnClickListener);
+        args.putSerializable("breve", true);
         fragment.setArguments(args);
         return fragment;
     }
