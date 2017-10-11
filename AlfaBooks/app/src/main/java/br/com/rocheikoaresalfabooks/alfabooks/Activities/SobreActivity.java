@@ -19,12 +19,10 @@ public class SobreActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_sobre);
 
+        /* Habilita botão de voltar e altera o título da activity */
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-
         ab.setTitle(R.string.sobre);
-
-
 
     }
 }

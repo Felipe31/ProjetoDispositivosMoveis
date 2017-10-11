@@ -25,24 +25,19 @@ public class CarrinhoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrinho);
 
+        /* Habilita botão de voltar e altera o título da activity */
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(R.string.cart_title_txtv);
 
 
+        /* Define o ReclyclerView e seu LayoutManege */
         mRecyclerView = (RecyclerView) findViewById(R.id.carrinho_rcyclview);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
-
-        Log.e("TAAG", "Passou");
-
-        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
+        /* Define o adaptador personalizado CarrinhoAdapter como adaptador da ReclyclerView */
         mAdapter = new CarrinhoAdapter(carregarLista());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mRecyclerView.getLayoutManager());
@@ -50,6 +45,7 @@ public class CarrinhoActivity extends AppCompatActivity {
 
     private ArrayList<ItensCarrinhoSerializable> carregarLista() {
 
+        /* Recupera lista de itens do carrinho da classe BancoTemporario */
         return BancoTemporario.getInstance().getItensCarrinho();
     }
 }

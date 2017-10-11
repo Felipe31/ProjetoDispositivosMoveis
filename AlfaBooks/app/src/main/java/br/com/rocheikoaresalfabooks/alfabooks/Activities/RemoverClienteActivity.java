@@ -1,8 +1,22 @@
 package br.com.rocheikoaresalfabooks.alfabooks.Activities;
 
-/**
- * Created by felipesoares on 10/10/17.
- */
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class RemoverClienteActivity {
+import br.com.rocheikoaresalfabooks.alfabooks.R;
+
+public class RemoverClienteActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_remcli);
+
+        /* Habilita botão de voltar e altera o título da activity */
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle(R.string.remover_cliente);
+
+    }
 }

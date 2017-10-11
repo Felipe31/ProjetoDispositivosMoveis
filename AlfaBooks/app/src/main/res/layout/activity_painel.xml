@@ -36,11 +36,11 @@
                 android:text="@string/atualizar" />
 
             <Button
-                android:id="@+id/del_cli_btn"
+                android:id="@+id/rem_cli_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/MaterialButton.ButtonNoBackground"
-                android:text="@string/deletar" />
+                android:text="@string/remover" />
         </LinearLayout>
 
         <TextView
@@ -70,11 +70,11 @@
                 android:text="@string/atualizar" />
 
             <Button
-                android:id="@+id/del_prod_btn"
+                android:id="@+id/rem_prod_btn"
                 style="@style/MaterialButton.ButtonNoBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deletar" />
+                android:text="@string/remover" />
         </LinearLayout>
 
         <TextView
@@ -105,11 +105,11 @@
                 android:text="@string/atualizar" />
 
             <Button
-                android:id="@+id/del_forn_btn"
+                android:id="@+id/rem_forn_btn"
                 style="@style/MaterialButton.ButtonNoBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deletar" />
+                android:text="@string/remover" />
         </LinearLayout>
 
     </LinearLayout>

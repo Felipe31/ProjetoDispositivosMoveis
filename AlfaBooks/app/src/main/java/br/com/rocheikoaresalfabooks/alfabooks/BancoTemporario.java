@@ -23,6 +23,9 @@ public class BancoTemporario {
 
 
     }
+
+    /** Carrinho **/
+
     public void addItemCarrinho(ItensCarrinhoSerializable it){
         carrinho.add(it);
     }

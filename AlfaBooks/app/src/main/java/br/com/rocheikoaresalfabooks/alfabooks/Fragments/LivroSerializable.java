@@ -14,6 +14,10 @@ import java.io.Serializable;
 
 public class LivroSerializable implements Serializable {
 
+    /*
+     * Serializa os dados de Livro
+     */
+
     private int id;
     private String titulo;
     private String descricaoBreve;

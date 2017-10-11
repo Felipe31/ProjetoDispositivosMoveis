@@ -2,6 +2,7 @@ package br.com.rocheikoaresalfabooks.alfabooks.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -28,23 +29,25 @@ public class PesquisarActivity extends AppCompatActivity implements SearchView.O
     SearchView editsearch;
     String[] nomeLivroLista;
     ArrayList<Livro> livrosLista = new ArrayList<Livro>();
+    ArrayList<LivroSerializable> dataSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesquisar);
 
-        // Generate sample data
-
-        nomeLivroLista = new String[]{"Titulo 1", "Titulo 2", "Titulo 3",
-                "Titulo 4", "Titulo 5", "Titulo 6"};
+        /* Habilita botão de voltar e altera o título da activity */
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle(R.string.pesquisar);
 
         // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.listview);
 
-        for (int i = 0; i < nomeLivroLista.length; i++) {
-            Livro livro = new Livro(nomeLivroLista[i]);
-            // Binds all strings into an array
+        /* Recupera a lista de livros e popula a listview */
+        dataSet= BancoTemporario.getInstance().getItensDataSet();
+        for(LivroSerializable ls : dataSet){
+            Livro livro = new Livro(ls.getTitulo());
             livrosLista.add(livro);
         }
 
@@ -75,16 +78,13 @@ public class PesquisarActivity extends AppCompatActivity implements SearchView.O
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        /* Para cada item selecionado, abre a activity que exibe detalhes */
         Intent it = new Intent(parent.getContext(), ExibirLivroActivity.class);
-        it.putExtra("livro", BancoTemporario.getInstance().getLivroSerializable(nomeLivroLista[position]));
+        it.putExtra("livro", BancoTemporario.getInstance().getLivroSerializable(dataSet.get(position).getTitulo()));
         startActivity(it);
-
-        //Toast.makeText(getApplicationContext(),"Position of Selected Item is : "+position,Toast.LENGTH_LONG).show();
     }
-
-
-
-    }
+}
 
 
 

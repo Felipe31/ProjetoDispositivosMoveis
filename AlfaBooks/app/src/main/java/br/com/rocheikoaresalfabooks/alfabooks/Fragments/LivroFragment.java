@@ -17,9 +17,6 @@ import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
 import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class LivroFragment extends Fragment {
     View aux = null;
     LivroSerializable livroSerializable;
@@ -30,31 +27,32 @@ public class LivroFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        // Inflate the layout for this fragment
+        /* Infla o fragment cardview do livro */
         aux = inflater.inflate(R.layout.fragment_livro, container, false);
 
+        /* Recupera as views de cada item do cardview */
         ImageView imageView = aux.findViewById(R.id.livro_imgv);
-        final TextView tituloTxtv = aux.findViewById(R.id.titulo_txtv);
+        TextView tituloTxtv = aux.findViewById(R.id.titulo_txtv);
         TextView descricaoTxtv = aux.findViewById(R.id.descricao_txtv);
         TextView valorTxtv = aux.findViewById(R.id.valor_livro);
         Button button = aux.findViewById(R.id.add_carrinho_btn);
 
+        /* Recupera o livroSerializable e flags que foram enviados como argumento do fragment */
         livroSerializable = (LivroSerializable) this.getArguments().get("livro");
         boolean onclick = (boolean) this.getArguments().get("onclick");
-
         String descricao = (boolean) this.getArguments().get("breve")? livroSerializable.getDescricaoBreve() : livroSerializable.getDescricaoLonga();
 
+
+        /* Define os conteúdos do fragment */
         imageView.setImageBitmap(livroSerializable.getBitmap());
         tituloTxtv.setText(livroSerializable.getTitulo());
         descricaoTxtv.setText(descricao);
         valorTxtv.setText(String.format("R$%.2f", livroSerializable.getValor()));
 
-//        button.setTag(livroSerializable);
-
+        /* Define a ação do botão para adicionar livro ao carrinho e apresenta uma snackbar */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 ItensCarrinhoSerializable it = new ItensCarrinhoSerializable(livroSerializable.getId(), livroSerializable.getTitulo(), 1, livroSerializable.getValor());
 
@@ -67,6 +65,9 @@ public class LivroFragment extends Fragment {
             }
         });
 
+        /* Se onclic for verdadeiro os Listeners dos componentes do fragment são definidos para
+         * abrir mais detalhes do livro
+         */
         if(onclick) {
 
             tituloTxtv.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +101,7 @@ public class LivroFragment extends Fragment {
         return aux;
     }
 
+    /* Inicia a activity de detalhes do livro */
     private void iniciaItem(){
         Intent it = new Intent(aux.getContext(), ExibirLivroActivity.class);
         it.putExtra("livro", livroSerializable);
@@ -118,7 +120,9 @@ public class LivroFragment extends Fragment {
     }
 
 
-
+    /*
+     * Classe usada para desfazer a ação do snackbar
+     */
     public class DesfazerAdicionarAoCarrrinho implements View.OnClickListener{
 
         private ItensCarrinhoSerializable it;

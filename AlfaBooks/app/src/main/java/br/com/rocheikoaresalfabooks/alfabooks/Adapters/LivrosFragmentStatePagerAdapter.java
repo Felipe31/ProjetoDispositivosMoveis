@@ -30,6 +30,9 @@ public class LivrosFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
         this.setOnClickListener = setOnClickListener;
     }
 
+    /*
+     * Define e inicializa o fragment do PagerAdapter
+     */
     @Override
     public Fragment getItem(int position) {
 

@@ -22,18 +22,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 
-import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.Adapters.LivrosFragmentStatePagerAdapter;
 import br.com.rocheikoaresalfabooks.alfabooks.BancoTemporario;
 import br.com.rocheikoaresalfabooks.alfabooks.Fragments.LivroSerializable;
@@ -44,19 +36,19 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
  */
 
 public class InicialActivity extends AppCompatActivity{
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
 
-        // Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = getSupportActionBar();
+//        /* Habilita botão de voltar e altera o título da activity */
+//        ActionBar ab = getSupportActionBar();
 
+
+        /* Define ação do botão de login para abrir a activity correspondente */
         Button loginBtn = (Button) findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +57,7 @@ public class InicialActivity extends AppCompatActivity{
             }
         });
 
+        /* Define ação do textview "sobre nós" para abrir a activity correspondente */
         TextView sobreNosTxtv = (TextView) findViewById(R.id.sobre_nos);
         sobreNosTxtv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,39 +66,47 @@ public class InicialActivity extends AppCompatActivity{
             }
         });
 
-        /** ViewPager **/
+        /* ViewPager */
         ViewPager vp = (ViewPager) findViewById(R.id.livros_vpager);
 
 
+        /* BancoTemporario é uma classe singleton */
         BancoTemporario banco = BancoTemporario.getInstance();
 
 
+        /* Define e comprime bitmap padrão para imagem dos livros */
         Bitmap bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_alfabooks_logo)).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+        /* Objeto do tipo byte[] é necessário para serilializar o bitmap */
         byte[] byteArray = stream.toByteArray();
 
+        /* Adiciona livros no BancoTemporario e demais informações
+         *  Isto é feito utilizando objetos do tipo LivroSerializable
+         * */
         banco.addItemDataSet(new LivroSerializable(1, "Titulo 1", "Descrição Breve 1", "Descrição Longa 1", 1, byteArray));
         banco.addItemDataSet(new LivroSerializable(2, "Titulo 2", "Descrição Breve 2", "Descrição Longa 2", 2, byteArray));
         banco.addItemDataSet(new LivroSerializable(3, "Titulo 3", "Descrição Breve 3", "Descrição Longa 3", 3, byteArray));
         banco.addItemDataSet(new LivroSerializable(4, "Titulo 4", "Descrição Breve 4", "Descrição Longa 4", 4, byteArray));
         banco.addItemDataSet(new LivroSerializable(5, "Titulo 5", "Descrição Breve 5", "Descrição Longa 5", 5, byteArray));
 
+
+        /* Cria PagerAdapter passando as informações para popular o mesmo */
         LivrosFragmentStatePagerAdapter pagerAdapter = new LivrosFragmentStatePagerAdapter(getSupportFragmentManager(), banco.getItensDataSet(), true);
+
+        /* Define Adapter para o ViewPager que compõe esta activity */
         vp.setAdapter(pagerAdapter);
 
 
     }
 
-
-
-
-
-    /** Action bar Menu **/
+    /* Action bar Menu */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        /* Processa clicks no menu da actionbar */
         switch (item.getItemId()) {
             case R.id.action_search:
                 startActivity(new Intent(this, PesquisarActivity.class));
@@ -119,6 +120,8 @@ public class InicialActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
+
+    /* Infla o menu da actionbar */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

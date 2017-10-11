@@ -11,6 +11,9 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
  */
 
 public class LivrosViewPagerActivity extends AppCompatActivity {
+
+    /* Utilizado na criação do ViewPager */
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

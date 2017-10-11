@@ -21,17 +21,19 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.ViewHo
 
     private ArrayList<ItensCarrinhoSerializable> dataSet;
 
-    // Provide a suitable constructor (depends on the kind of dataset)
+
     public CarrinhoAdapter(ArrayList<ItensCarrinhoSerializable> dataSet) {
         this.dataSet = dataSet;
     }
 
 
-    // Replace the contents of a view (invoked by the layout manager)
+    /* Define conteúdo apresentado na tela e
+     * define a ação do botão de remover com um snackbar reversível
+     */
     @Override
     public void onBindViewHolder(CarrinhoAdapter.ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+
+
         holder.tituloTxtv.setText(dataSet.get(position).getNome());
         holder.qtdTxtv.setText(String.valueOf (dataSet.get(position).getQtd()));
 
@@ -45,7 +47,6 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.ViewHo
                 Snackbar mySnackbar = Snackbar.make(view,
                         R.string.remove_item_carrinho, Snackbar.LENGTH_LONG);
                 mySnackbar.setAction(R.string.desfazer, new DesfazerRemover(dataSet, dataSet.get(position), position));
-//                mySnackbar.setAction(R.string.desfazer_remover_item_carrinho, null);
                 mySnackbar.show();
 
                 dataSet.remove(position);
@@ -57,8 +58,6 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.ViewHo
 
     }
 
-
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return dataSet.size();
@@ -68,42 +67,42 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.ViewHo
     /** View Holder **/
 
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    /*
+     * É usado como referência para a criação e população dos itens do carrinho
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+
         private View mView;
         private TextView tituloTxtv;
         private TextView qtdTxtv;
         private ImageButton removeBtn;
+
         public ViewHolder(View v) {
             super(v);
             mView = v;
             tituloTxtv = mView.findViewById(R.id.item_cart_txtv );
             qtdTxtv = mView.findViewById(R.id.qtd_cart_etxt );
             removeBtn = mView.findViewById(R.id.deleta_item_imgbtn);
-
-
-
         }
     }
 
-
+    /*
+     * Infla o fragment do carrrinho
+     */
     @Override
     public CarrinhoAdapter.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType){
-        // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_item_cart, parent, false);
 
         v.setMinimumWidth(parent.getMeasuredWidth());
-        // set the view's size, margins, paddings and layout parameters
         CarrinhoAdapter.ViewHolder vh = new CarrinhoAdapter.ViewHolder(v);
-
-
 
         return vh;
     }
+
+    /*
+     * Classe usada para desfazer a ação do snackbar
+     */
 
     public class DesfazerRemover implements View.OnClickListener {
 

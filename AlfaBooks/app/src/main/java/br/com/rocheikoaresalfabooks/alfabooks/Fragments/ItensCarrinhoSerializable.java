@@ -7,6 +7,9 @@ import java.io.Serializable;
  */
 
 public class ItensCarrinhoSerializable implements Serializable {
+    /*
+     * Serializa os dados de um Item do Carrinho
+     */
 
     private String nome;
     private int qtd, id;

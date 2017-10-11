@@ -15,13 +15,12 @@ import br.com.rocheikoaresalfabooks.alfabooks.R;
 
 public class ListViewAdapter extends BaseAdapter {
 
-    // Declare Variables
-
     Context mContext;
     LayoutInflater inflater;
     private List<Livro> livrosLista = null;
     private ArrayList<Livro> arraylist;
 
+    /* Utilizado para a pesquisa de livros */
     public ListViewAdapter(Context context, List<Livro> livrosLista) {
         mContext = context;
         this.livrosLista = livrosLista;
@@ -49,23 +48,24 @@ public class ListViewAdapter extends BaseAdapter {
         return position;
     }
 
+    /* Define o conteúdo de cada item da lista */
     public View getView(final int position, View view, ViewGroup parent) {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
-            // Locate the TextViews in listview_item.xml
+
             holder.name = (TextView) view.findViewById(R.id.name);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        // Set the results into TextViews
+
         holder.name.setText(livrosLista.get(position).getNomeLivro());
         return view;
     }
 
-    // Filter Class
+    /* Usado para atualizar o filtro da pesquisa */
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
         livrosLista.clear();

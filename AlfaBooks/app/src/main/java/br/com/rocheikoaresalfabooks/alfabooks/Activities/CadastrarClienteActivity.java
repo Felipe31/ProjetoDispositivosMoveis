@@ -19,8 +19,11 @@ public class CadastrarClienteActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_cadcli);
 
+        /* Habilita botão de voltar e altera o título da activity */
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle(R.string.cadastrar_cliente);
+
 
     }
 }
