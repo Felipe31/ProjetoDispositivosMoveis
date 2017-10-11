@@ -47,12 +47,11 @@
             android:text="@string/sobre" />
 
         <TextView
-            android:id="@+id/link"
+            android:id="@+id/linkpdf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autoLink="web"
             android:clickable="true"
-            android:text="https://www.dropbox.com/s/2fjwo200at1hodg/pdf-apps.pdf?dl=0" />
+            android:text="https://www.dropbox.com/s/ks8xuky15zrsyhr/pdf-apps.pdf?dl=0" />
 
     </LinearLayout>
 </ScrollView>
